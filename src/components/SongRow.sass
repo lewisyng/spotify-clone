@@ -1,0 +1,48 @@
+.songRow
+    padding: 20px 0 20px 0
+    display: flex
+    align-items: center
+    color: gray
+    font-weight: bold
+    &:not(.songRow__song__data__title)
+       font-size: 12px
+
+    &:hover
+        cursor: pointer
+        background-color: black
+        opacity: 0.8
+
+    &__index
+        text-align: center
+        flex: 0.03
+
+    &__song
+        flex: 0.4
+        display: flex
+
+        &__album
+            height: 40px !important
+            width: 40px
+
+        &__data
+            margin: 0 0 0 10px
+            &__title
+                font-weight: bold
+                font-size: 16px
+                color: white
+            &__interpret
+                font-size: 14px
+                margin: 3px 0 0 0
+
+    &__album
+        flex: 0.27
+
+    &__added
+        flex: 0.27
+
+    &__time
+        flex: 0.03
+
+    &__info
+        margin: 0 0 0 20px
+        display: flex

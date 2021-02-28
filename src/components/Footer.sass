@@ -1,0 +1,57 @@
+@import '../assets/styles/colors'
+    
+.footer
+    position: fixed
+    display: flex
+    justify-content: space-between
+    bottom: 0
+    height: 65px
+    width: 100%
+    background-color: $footerbg
+    padding: 40px
+
+    &__left
+        flex: 0.3
+        display: flex
+        align-items: center
+        width: 300px
+
+        & img
+            height: 60px
+            width: 60px
+            margin: 0 20px 0 0
+            object-fit: contain
+
+        &__songInfo
+            &__title
+                margin: 0 0 5px 0
+
+            &__interpret
+                font-size: 12px
+
+    &__center
+        flex: 0.4
+        display: flex
+        align-items: center
+        justify-content: space-between
+        max-width: 300px
+
+        &__icon
+            color: $icon
+
+            &:hover
+                color: white
+
+            &__play
+                &:hover
+                    transition: transform 100ms ease-in-out
+                    transform: scale(1.05) !important
+    
+    &__right
+        flex: 0.3
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        & .MuiSlider-root
+            color: white

@@ -1,0 +1,66 @@
+@import '../assets/styles/_colors.sass'
+    
+.body
+    flex: 0.88
+    height: 100vh
+    padding: 30px
+    background-color: $mainbg
+    overflow-y: overlay
+
+    &::-webkit-scrollbar
+        display: none
+
+    &__info
+        display: flex
+        align-items: flex-end
+        padding: 10px 10px 10px 0
+
+        & >img
+            height: 12vw
+            min-height: 200px
+            margin: 0 20px 0 0
+            box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5)
+    
+        &__text
+            flex: 1
+
+            & h2
+                font-size: 5vw
+
+    &__songs        
+        &__icons
+            display: flex
+            align-items: center
+            margin: 20px 0
+
+            & .MuiSvgIcon-root
+                margin: 0 30px 0 0
+
+            &__shuffle
+                font-size: 60px !important
+
+                &:hover
+                    transition: transform 100ms ease-in
+                    transform: scale(1.08)
+
+        &__container
+            margin: 40px 0 0 0
+            &__header
+                display: flex
+                font-weight: bold
+                & p
+                    font-size: 12px
+                    color: gray
+
+                    &:nth-of-type(1)
+                        text-align: center
+                        flex: 0.03
+                    &:nth-of-type(2)
+                        flex: 0.4
+                    &:nth-of-type(3)
+                        flex: 0.27
+                    &:nth-of-type(4)
+                        flex: 0.27
+                    &:nth-of-type(5)
+                        flex: 0.03
+                        
