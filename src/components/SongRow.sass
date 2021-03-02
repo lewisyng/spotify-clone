@@ -1,19 +1,20 @@
+@import '../assets/styles/_colors'
+    
 .songRow
-    padding: 20px 0 20px 0
+    padding: 10px 20px
     display: flex
     align-items: center
-    color: gray
-    font-weight: bold
+    color: $sidebarOptionsText
     &:not(.songRow__song__data__title)
-       font-size: 12px
+       font-size: 14px
 
     &:hover
         cursor: pointer
-        background-color: black
-        opacity: 0.8
+        background-color: rgba(white, 0.1)
+        color: white !important
 
     &__index
-        text-align: center
+        font-size: 16px
         flex: 0.03
 
     &__song
@@ -35,6 +36,9 @@
                 margin: 3px 0 0 0
 
     &__album
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
         flex: 0.27
 
     &__added
@@ -42,6 +46,7 @@
 
     &__time
         flex: 0.03
+        text-align: right
 
     &__info
         margin: 0 0 0 20px

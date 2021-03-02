@@ -6,19 +6,29 @@ import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import SongRow from "./SongRow";
+import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import { accumulateAllSongDurations, msConverter } from "../helperfunctions";
 
-function Body({ spotify }) {
+function Body() {
   const state = useSelector((state) => state);
+
   return (
     <div className="body">
-      <Header spotify={spotify} />
+      <Header />
 
       <div className="body__info">
         <img src={state.discover_weekly?.images[0].url} alt="" />
         <div className="body__info__text">
-          <strong>PLAYLIST</strong>
-          <h2>{state.discover_weekly?.name}</h2>
+          <h2>PLAYLIST</h2>
+          <h4>{state.discover_weekly?.name}</h4>
           <p>{state.discover_weekly?.description}</p>
+          <div className="body__info__text__data">
+            <strong>Spotify</strong> •{" "}
+            {state.discover_weekly?.tracks.items.length} Songs,{" "}
+            {`${msConverter(accumulateAllSongDurations(state))[0]} Std. ${
+              msConverter(accumulateAllSongDurations(state))[1]
+            } Min.`}
+          </div>
         </div>
       </div>
       <div className="body__songs">
@@ -33,11 +43,13 @@ function Body({ spotify }) {
             <p>TITEL</p>
             <p>ALBUM</p>
             <p>HINZUGEFÜGT AM</p>
-            <p>TIME</p>
+            <p>
+              <AccessTimeIcon fontSize="small" />
+            </p>
           </div>
-          <hr/>
+          <hr />
           {state.discover_weekly?.tracks.items.map((item, index) => {
-            return <SongRow index={index+1} track={item.track} />;
+            return <SongRow index={index + 1} added={item.added_at} track={item.track} />;
           })}
         </div>
       </div>

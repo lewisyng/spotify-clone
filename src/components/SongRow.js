@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { msConverter } from "../helperfunctions";
 import "./SongRow.sass";
 
-function SongRow({ track = "test", index }) {
-  const [duration, setDuration] = useState(null);
+function SongRow({ track = "test", added, index }) {
+  const diffDates = () => {
+    var currentdate = new Date();
+    var dateWhenAdded = new Date(`${added.slice(5,7)}/${added.slice(8,10)}/${added.slice(0,4)}`);
 
-  useEffect(() => {
-    let min = Math.floor(track.duration_ms / 1000 / 60);
-    let sec = Math.floor((track.duration_ms - min * 60 * 1000) / 1000);
+    // To calculate the time difference of two dates
+    var Difference_In_Time = currentdate.getTime() - dateWhenAdded.getTime();
 
-    setDuration(`${min}:${sec}`);
-  }, []);
+    // To calculate the no. of days between two dates
+    return Math.floor((Difference_In_Time / (1000 * 3600 * 24)));
+  };
 
   return (
     <div className="songRow">
@@ -28,8 +31,10 @@ function SongRow({ track = "test", index }) {
         </div>
       </div>
       <div className="songRow__album">{track.album.name}</div>
-      <div className="songRow__added"></div>
-      <div className="songRow__time">{duration && duration}</div>
+      <div className="songRow__added">vor {diffDates()} Tag</div>
+      <div className="songRow__time">{`${msConverter(track.duration_ms)[1]}:${
+        msConverter(track.duration_ms)[2]
+      }`}</div>
     </div>
   );
 }
